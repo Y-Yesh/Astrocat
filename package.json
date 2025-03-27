@@ -1,0 +1,35 @@
+{
+	"name": "whispering",
+	"private": true,
+	"version": "6.3.1",
+	"description": "",
+	"keywords": [],
+	"license": "ISC",
+	"author": "",
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"format": "concurrently \"biome format --write .\" \"turbo run format --filter=@repo/app\"",
+		"lint": "concurrently \"biome lint --write --unsafe .\" \"turbo run lint --filter=@repo/app\"",
+		"format-and-lint": "concurrently \"biome check --write --unsafe .\" \"turbo run format --filter=@repo/app && turbo run lint --filter=@repo/app\""
+	},
+	"packageManager": "pnpm@10.4.0",
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"concurrently": "latest",
+		"turbo": "latest"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@parcel/watcher",
+			"@sveltejs/kit",
+			"@swc/core",
+			"esbuild",
+			"lmdb",
+			"msgpackr-extract",
+			"protobufjs",
+			"sharp"
+		]
+	}
+}
